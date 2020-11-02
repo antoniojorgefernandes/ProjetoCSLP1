@@ -333,6 +333,7 @@ void threshold(string NomeFicheiro){
 
   destroyAllWindows();
 
+
 }
 
 void dilation(string NomeFicheiro){
@@ -435,10 +436,21 @@ void convertYUV420(string NomeFicheiro){
         float Cb = 128 - 0.168736*R  - 0.331264* G + 0.5*B;
         float Cr = 128 + 0.5*R - 0.418688*G - 0.081312*B;
         //store into result image
-        Vec3b ycbcr(Y,Cb,Cr);
-        YMat.at<Vec3b>(i,j) = ycbcr;
+        if(j%2==0) && i=(4*i -3)){
+          Vec2b cbcr(Cb,Cr);
+          YMat.at<Vec2b>(i-1,j) = cbcr;
+          YMat.at<Vec2b>(i-,j+1) = cbcr;
+          YMat.at<Vec2b>(i,j) = cbcr;
+          YMat.at<Vec2b>(i,j+1) = cbcr;
+        }
+        else if(i%2==0){
+          YMat.at<int>(i,j)=Y;
+        }
+        
     }
   }
+  cvtColor(frame,frame,COLOR_YUV420p2RGB);
+  imshow("Frame",frame);
   imshow("YCbCr",YMat);
  // imshow("aas", CbCr);
   if (count == 1){
