@@ -1,0 +1,66 @@
+\hypertarget{classBitStream}{}\doxysection{Bit\+Stream Class Reference}
+\label{classBitStream}\index{BitStream@{BitStream}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBitStream_abc5529c56d609c23449ce3e408a50786}{write\+One\+Bit}} (u\+\_\+char bit)
+\item 
+void \mbox{\hyperlink{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}{write\+NBits}} (int value, int number\+Of\+Bits)
+\item 
+bool \mbox{\hyperlink{classBitStream_ab51c4b77f33ca94a6da27caa33d9f985}{read\+One\+Bit}} ()
+\item 
+boost\+::dynamic\+\_\+bitset \mbox{\hyperlink{classBitStream_adac9bdf98e5b7df0243f9152bccda587}{read\+NBits}} (int number\+Of\+Bits)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBitStream_ab847cb08cb00fca1798abca88884e635}\label{classBitStream_ab847cb08cb00fca1798abca88884e635}} 
+bitset$<$ 8 $>$ \mbox{\hyperlink{classBitStream_ab847cb08cb00fca1798abca88884e635}{Bit\+Storage}}
+\begin{DoxyCompactList}\small\item\em bitset to Store up to 8 bits \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStream_a481139af3b25e315ba53b02215704b41}\label{classBitStream_a481139af3b25e315ba53b02215704b41}} 
+int \mbox{\hyperlink{classBitStream_a481139af3b25e315ba53b02215704b41}{Insert\+Position}} =0
+\begin{DoxyCompactList}\small\item\em Position to store the next bit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStream_ab7c076cf6edff6ed9e0a08c39a276682}\label{classBitStream_ab7c076cf6edff6ed9e0a08c39a276682}} 
+int \mbox{\hyperlink{classBitStream_ab7c076cf6edff6ed9e0a08c39a276682}{Read\+Position}} =0
+\begin{DoxyCompactList}\small\item\em Position to read next bit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStream_ac498c02ea0f0559af59021a90a37b559}\label{classBitStream_ac498c02ea0f0559af59021a90a37b559}} 
+int \mbox{\hyperlink{classBitStream_ac498c02ea0f0559af59021a90a37b559}{bits\+Written\+To\+File}} =0
+\begin{DoxyCompactList}\small\item\em Bits written to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStream_a93f713eec79766d62f87d431e0311627}\label{classBitStream_a93f713eec79766d62f87d431e0311627}} 
+ofstream \mbox{\hyperlink{classBitStream_a93f713eec79766d62f87d431e0311627}{wf}}
+\begin{DoxyCompactList}\small\item\em Write to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStream_a273abf77d91226319cec79acc45769d1}\label{classBitStream_a273abf77d91226319cec79acc45769d1}} 
+ifstream \mbox{\hyperlink{classBitStream_a273abf77d91226319cec79acc45769d1}{rf}}
+\begin{DoxyCompactList}\small\item\em Read from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBitStream_adac9bdf98e5b7df0243f9152bccda587}\label{classBitStream_adac9bdf98e5b7df0243f9152bccda587}} 
+\index{BitStream@{BitStream}!readNBits@{readNBits}}
+\index{readNBits@{readNBits}!BitStream@{BitStream}}
+\doxysubsubsection{\texorpdfstring{readNBits()}{readNBits()}}
+{\footnotesize\ttfamily boost\+::dynamic\+\_\+bitset Bit\+Stream\+::read\+NBits (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Read n bits by reading one bit n times \mbox{\Hypertarget{classBitStream_ab51c4b77f33ca94a6da27caa33d9f985}\label{classBitStream_ab51c4b77f33ca94a6da27caa33d9f985}} 
+\index{BitStream@{BitStream}!readOneBit@{readOneBit}}
+\index{readOneBit@{readOneBit}!BitStream@{BitStream}}
+\doxysubsubsection{\texorpdfstring{readOneBit()}{readOneBit()}}
+{\footnotesize\ttfamily bool Bit\+Stream\+::read\+One\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Read one bit either from a file or from the Bit\+Storage Calculates the current byte position to read from file and the position of the bit to read from said byte \mbox{\Hypertarget{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}\label{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}} 
+\index{BitStream@{BitStream}!writeNBits@{writeNBits}}
+\index{writeNBits@{writeNBits}!BitStream@{BitStream}}
+\doxysubsubsection{\texorpdfstring{writeNBits()}{writeNBits()}}
+{\footnotesize\ttfamily void Bit\+Stream\+::write\+NBits (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+writes n bits by writting one bit n times \mbox{\Hypertarget{classBitStream_abc5529c56d609c23449ce3e408a50786}\label{classBitStream_abc5529c56d609c23449ce3e408a50786}} 
+\index{BitStream@{BitStream}!writeOneBit@{writeOneBit}}
+\index{writeOneBit@{writeOneBit}!BitStream@{BitStream}}
+\doxysubsubsection{\texorpdfstring{writeOneBit()}{writeOneBit()}}
+{\footnotesize\ttfamily void Bit\+Stream\+::write\+One\+Bit (\begin{DoxyParamCaption}\item[{u\+\_\+char}]{bit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts a bit in the storage Check if the bitset if full and writes to the file in that case. Resets the Insert\+Position and the storage 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bit\+Stream.\+cpp\end{DoxyCompactItemize}
