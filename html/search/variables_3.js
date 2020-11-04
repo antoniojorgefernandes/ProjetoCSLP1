@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wf_21',['wf',['../classBitStream.html#a93f713eec79766d62f87d431e0311627',1,'BitStream']]]
+  ['wf_25',['wf',['../classBitStreamW.html#ae1829bcb77c6c90c7ffb9a691ff34558',1,'BitStreamW']]]
 ];

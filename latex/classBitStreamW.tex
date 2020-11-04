@@ -1,0 +1,52 @@
+\hypertarget{classBitStreamW}{}\doxysection{Bit\+StreamW Class Reference}
+\label{classBitStreamW}\index{BitStreamW@{BitStreamW}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBitStreamW_aab38c4dd445684ff3ea19604d3a42544}\label{classBitStreamW_aab38c4dd445684ff3ea19604d3a42544}} 
+\mbox{\hyperlink{classBitStreamW_aab38c4dd445684ff3ea19604d3a42544}{Bit\+StreamW}} ()
+\begin{DoxyCompactList}\small\item\em Contrutor abre o ficheiro para guardar informação. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBitStreamW_abb2777857ddf3e119b21843f3e83d0a2}{write\+One\+Bit}} (u\+\_\+char bit)
+\item 
+void \mbox{\hyperlink{classBitStreamW_a12152417e453efd4a5b40a0613458da3}{write\+NBits}} (int value, int number\+Of\+Bits)
+\item 
+void \mbox{\hyperlink{classBitStreamW_aa797078171a62fd1dd80444516c4df49}{close}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBitStreamW_a432c2d2c87cd5fbcfefa08258f2d425e}\label{classBitStreamW_a432c2d2c87cd5fbcfefa08258f2d425e}} 
+bitset$<$ 8 $>$ \mbox{\hyperlink{classBitStreamW_a432c2d2c87cd5fbcfefa08258f2d425e}{Bit\+Storage}}
+\begin{DoxyCompactList}\small\item\em bitset to Store up to 8 bits \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStreamW_adec38254114fca2fcb08c3e18df4470e}\label{classBitStreamW_adec38254114fca2fcb08c3e18df4470e}} 
+int \mbox{\hyperlink{classBitStreamW_adec38254114fca2fcb08c3e18df4470e}{Insert\+Position}} =0
+\begin{DoxyCompactList}\small\item\em Position to store the next bit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStreamW_ae1829bcb77c6c90c7ffb9a691ff34558}\label{classBitStreamW_ae1829bcb77c6c90c7ffb9a691ff34558}} 
+ofstream \mbox{\hyperlink{classBitStreamW_ae1829bcb77c6c90c7ffb9a691ff34558}{wf}}
+\begin{DoxyCompactList}\small\item\em Write to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBitStreamW_aa797078171a62fd1dd80444516c4df49}\label{classBitStreamW_aa797078171a62fd1dd80444516c4df49}} 
+\index{BitStreamW@{BitStreamW}!close@{close}}
+\index{close@{close}!BitStreamW@{BitStreamW}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void Bit\+Stream\+W\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Escreve o que resta no Storage no ficheiro e fecha-\/o \mbox{\Hypertarget{classBitStreamW_a12152417e453efd4a5b40a0613458da3}\label{classBitStreamW_a12152417e453efd4a5b40a0613458da3}} 
+\index{BitStreamW@{BitStreamW}!writeNBits@{writeNBits}}
+\index{writeNBits@{writeNBits}!BitStreamW@{BitStreamW}}
+\doxysubsubsection{\texorpdfstring{writeNBits()}{writeNBits()}}
+{\footnotesize\ttfamily void Bit\+Stream\+W\+::write\+NBits (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+writes n bits by writting one bit n times \mbox{\Hypertarget{classBitStreamW_abb2777857ddf3e119b21843f3e83d0a2}\label{classBitStreamW_abb2777857ddf3e119b21843f3e83d0a2}} 
+\index{BitStreamW@{BitStreamW}!writeOneBit@{writeOneBit}}
+\index{writeOneBit@{writeOneBit}!BitStreamW@{BitStreamW}}
+\doxysubsubsection{\texorpdfstring{writeOneBit()}{writeOneBit()}}
+{\footnotesize\ttfamily void Bit\+Stream\+W\+::write\+One\+Bit (\begin{DoxyParamCaption}\item[{u\+\_\+char}]{bit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts a bit in the storage Check if the bitset if full and writes to the file in that case. Resets the Insert\+Position and the storage 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bit\+Stream\+W.\+cpp\end{DoxyCompactItemize}

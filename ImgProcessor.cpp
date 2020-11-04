@@ -6,7 +6,7 @@
 
 using namespace std;
 using namespace cv; 
-//Reproduz um video a partir do nome ou mostra uma imagem
+//!Reproduz um video a partir do nome ou mostra uma imagem
 void PlayVideo(string NomeFicheiro){
 
   VideoCapture cap(NomeFicheiro);
@@ -36,7 +36,7 @@ void PlayVideo(string NomeFicheiro){
   destroyAllWindows();
 
 }
-//Reproduz um video ou mostra uma imagem a preto e branco
+//!Reproduz um video ou mostra uma imagem a preto e branco
 void grayScaleVideo(string NomeFicheiro){
 
   VideoCapture cap(NomeFicheiro);
@@ -52,20 +52,6 @@ void grayScaleVideo(string NomeFicheiro){
     if(frame.empty()){
       break;
     }
-    
-    // Mat output(frame.size(), CV_8UC1);
-
-    //  for(int i = 0; i < frame.rows; i++) {
-    //    for(int j = 0; j < frame.cols; j++) {
-    //      Vec3f BGR = frame.at<Vec3f>(i, j);
-
-    //      float B = BGR[0];
-    //      float G = BGR[1];
-    //      float R = BGR[2];          
-
-    //      output.at<int>(i, j) =  (R + G + B)/3;
-    //    }
-    //  }
 
     Mat dst;
     cvtColor( frame, frame, COLOR_BGR2GRAY );
@@ -86,7 +72,7 @@ void grayScaleVideo(string NomeFicheiro){
   destroyAllWindows();
 }
 
-//Coloca watermark no canto superior esquerdo
+//!Coloca watermark no canto superior esquerdo
 void waterMark(string NomeFicheiro){
 
   VideoCapture cap(NomeFicheiro);
@@ -117,7 +103,7 @@ void waterMark(string NomeFicheiro){
 
   destroyAllWindows();
 }
-//Reproduz o video ou mostra a imagem no formato YUV e mostra os diferentes canais
+//!Reproduz o video ou mostra a imagem no formato YUV e mostra os diferentes canais
 void openAsHSV(string NomeFicheiro){
   
   VideoCapture cap(NomeFicheiro);
@@ -162,7 +148,7 @@ void openAsHSV(string NomeFicheiro){
 
   destroyAllWindows();
 }
-//Reproduz o video ou mostra a imagem no formato YUV e mostra os diferentes canais
+//!Reproduz o video ou mostra a imagem no formato YUV e mostra os diferentes canais
 void openAsYUV(string NomeFicheiro){
   
   VideoCapture cap(NomeFicheiro);
@@ -207,7 +193,7 @@ void openAsYUV(string NomeFicheiro){
   destroyAllWindows();
 }
 
-//Mostra o color histotram da imagem. No caso de um video mostra o histogram por frame
+//!Mostra o color histotram da imagem. No caso de um video mostra o histogram por frame
 void colorHistogram(string NomeFicheiro){
   VideoCapture cap(NomeFicheiro);
   if(!cap.isOpened()){
@@ -215,7 +201,8 @@ void colorHistogram(string NomeFicheiro){
     return ;
   }
 
-  int count=0;
+  int count=
+  0;
   while(1){
     count++;
     Mat frame;
@@ -265,7 +252,7 @@ void colorHistogram(string NomeFicheiro){
 }
 
 
-//desfoca um video ou imagem
+//!desfoca um video ou imagem
 void blur(string NomeFicheiro){
    
   VideoCapture cap(NomeFicheiro);
@@ -333,7 +320,6 @@ void threshold(string NomeFicheiro){
 
   destroyAllWindows();
 
-
 }
 
 void dilation(string NomeFicheiro){
@@ -368,7 +354,6 @@ void dilation(string NomeFicheiro){
 
   destroyAllWindows();
 }
-
 void erosion(string NomeFicheiro){
 
   VideoCapture cap(NomeFicheiro);
@@ -401,8 +386,164 @@ void erosion(string NomeFicheiro){
   destroyAllWindows();
   
 }
+//!Converts from YUV444 to RGB
+void convertYUV444TORGB(Mat frame){
+  // VideoCapture cap(NomeFicheiro);
+  // if(!cap.isOpened()){
+  // cout << "Error opening the video" <<endl;
+  //   return ;
+  // }
+  int count=0;
+  while(1){
+    count++;
+    // Mat frame;
+    // cap >> frame;
 
-void convertYUV420(string NomeFicheiro){
+    if(frame.empty()){
+      break;
+    }
+  Mat RGBMat(frame.rows, frame.cols, CV_8UC3);
+  for(int i = 0; i < frame.rows; i++) {
+    for(int j = 0; j < frame.cols; j++) {
+        //get bgr pixel 
+        
+        Vec3b YCbCr = frame.at<Vec3b>(i, j);
+
+        float Y = YCbCr[0];
+        float Cb = YCbCr[1];
+        float Cr = YCbCr[2];          
+
+        int R = (int) (Y + 1.40200 * (Cr - 0x80));
+        int G = (int) (Y - 0.34414 * (Cb - 0x80) - 0.71414 * (Cr - 0x80));
+        int B = (int) (Y + 1.77200 * (Cb - 0x80));
+        if(R<0){
+          R=0;
+        }
+        else if(R>255){
+          R=255;
+        }
+        if(G<0){
+          G=0;
+        }
+        else if(G>255){
+          G=255;
+        }
+        if(B<0){
+          B=0;
+        }
+        else if(B>255){
+          B=255;
+        }
+        
+        Vec3b RGB(B,G,R);
+        RGBMat.at<Vec3b>(i,j) = RGB;
+    }
+  }
+  imshow("RGB",RGBMat);
+  if (count == 1){
+      waitKey(0);
+    }
+    char c =(char)waitKey(15);
+    if(c==27){
+      break;
+    }
+  }
+
+  destroyAllWindows();
+
+}
+//!Converts from YUV422 to RGB
+void convertYUV442TORGB(Mat frame){
+  // VideoCapture cap(NomeFicheiro);
+  // if(!cap.isOpened()){
+  // cout << "Error opening the video" <<endl;
+  //   return ;
+  // }
+  int count=0;
+  while(1){
+    count++;
+    // Mat frame;
+    // cap >> frame;
+
+    if(frame.empty()){
+      break;
+    }
+  Mat RGBMat(frame.rows, frame.cols, CV_8UC3);
+  for(int i = 0; i < frame.rows; i++) {
+    for(int j = 0, incr=2; j < frame.cols; j+=incr) {
+        Vec3b YCbCr = frame.at<Vec3b>(i, j);
+        float Y = YCbCr[0];
+        float Cb = YCbCr[1];
+        float Cr = YCbCr[2];       
+        int R = (int) (Y + 1.40200 * (Cr - 0x80));
+        int G = (int) (Y - 0.34414 * (Cb - 0x80) - 0.71414 * (Cr - 0x80));
+        int B = (int) (Y + 1.77200 * (Cb - 0x80));
+        if(R<0){
+          R=0;
+        }
+        else if(R>255){
+          R=255;
+        }
+        if(G<0){
+          G=0;
+        }
+        else if(G>255){
+          G=255;
+        }
+        if(B<0){
+          B=0;
+        }
+        else if(B>255){
+          B=255;
+        }
+        
+        Vec3b RGB(B,G,R);
+        RGBMat.at<Vec3b>(i,j) = RGB;
+        if(j+1<=frame.cols){
+          Vec3b YCbCr = frame.at<Vec3b>(i, j+1);
+          Y = YCbCr[0];
+          R = (int) (Y + 1.40200 * (Cr - 0x80));
+          G = (int) (Y - 0.34414 * (Cb - 0x80) - 0.71414 * (Cr - 0x80));
+          B = (int) (Y + 1.77200 * (Cb - 0x80));
+          if(R<0){
+            R=0;
+          }
+          else if(R>255){
+            R=255;
+          }
+          if(G<0){
+            G=0;
+          }
+          else if(G>255){
+            G=255;
+          }
+          if(B<0){
+            B=0;
+          }
+          else if(B>255){
+            B=255;
+          }
+          Vec3b RGB(B,G,R);
+          RGBMat.at<Vec3b>(i,j+1) = RGB;
+        }
+
+    }
+  }
+  imshow("RGB",RGBMat);
+  if (count == 1){
+      waitKey(0);
+    }
+    char c =(char)waitKey(15);
+    if(c==27){
+      break;
+    }
+  }
+
+  destroyAllWindows();
+
+}
+//!Converts from RGB to YUV
+void convertRGBTOYUV444(string NomeFicheiro){
   VideoCapture cap(NomeFicheiro);
   if(!cap.isOpened()){
   cout << "Error opening the video" <<endl;
@@ -418,10 +559,7 @@ void convertYUV420(string NomeFicheiro){
       break;
     }
   Mat YMat(frame.rows, frame.cols, CV_8UC3);
-  Mat CbCr(frame.rows, frame.cols, CV_8UC3);
 
-  int incr=2;
-  
   for(int i = 0; i < frame.rows; i++) {
     for(int j = 0; j < frame.cols; j++) {
         //get bgr pixel 
@@ -436,23 +574,13 @@ void convertYUV420(string NomeFicheiro){
         float Cb = 128 - 0.168736*R  - 0.331264* G + 0.5*B;
         float Cr = 128 + 0.5*R - 0.418688*G - 0.081312*B;
         //store into result image
-        if(j%2==0) && i=(4*i -3)){
-          Vec2b cbcr(Cb,Cr);
-          YMat.at<Vec2b>(i-1,j) = cbcr;
-          YMat.at<Vec2b>(i-,j+1) = cbcr;
-          YMat.at<Vec2b>(i,j) = cbcr;
-          YMat.at<Vec2b>(i,j+1) = cbcr;
-        }
-        else if(i%2==0){
-          YMat.at<int>(i,j)=Y;
-        }
         
+        Vec3b ycbcr(Y,Cb,Cr);
+        YMat.at<Vec3b>(i,j) = ycbcr;  
     }
   }
-  cvtColor(frame,frame,COLOR_YUV420p2RGB);
-  imshow("Frame",frame);
+  convertYUV444TORGB(YMat);
   imshow("YCbCr",YMat);
- // imshow("aas", CbCr);
   if (count == 1){
       waitKey(0);
     }
@@ -466,15 +594,73 @@ void convertYUV420(string NomeFicheiro){
   destroyAllWindows();
 
 }
+//Converts from RGB to YUV 442
+void convertRGBTOYUV442(string NomeFicheiro){
+  VideoCapture cap(NomeFicheiro);
+  if(!cap.isOpened()){
+  cout << "Error opening the video" <<endl;
+    return ;
+  }
+  int count=0;
+  while(1){
+    count++;
+    Mat frame;
+    cap >> frame;
 
+    if(frame.empty()){
+      break;
+    }
+  Mat YMat(frame.rows, frame.cols, CV_8UC1);
+  Mat CbCrMat(frame.rows, frame.cols,CV_8UC2);
+  for(int i = 0; i < frame.rows; i++) {
+    for(int j = 0; j < frame.cols; j++) {
+        //get bgr pixel 
+        Vec3b RGB = frame.at<Vec3b>(i, j);
 
+        float B = RGB[0];
+        float G = RGB[1];
+        float R = RGB[2];          
 
+        //actual conversion from BGR to YCrCb
+        int Y = 0.299*R + 0.587*G + 0.114 * B;
+        int Cb = 128 - 0.168736*R  - 0.331264* G + 0.5*B;
+        int Cr = 128 + 0.5*R - 0.418688*G - 0.081312*B;
+        //store into result image
+        if(j%2==0){
+          Vec2b cbcr(Cb,Cr);
+          CbCrMat.at<Vec2b>(i,j) = cbcr;
+        }
+        YMat.at<int>(i,j)=Y;
+         
+    }
+  }
+  vector<Mat>Channels(2);
+  Channels[0]=YMat;
+  Channels[1]=CbCrMat;
+  Mat YMat1;
+  merge(Channels, YMat1);
+  convertYUV442TORGB(YMat1);
+  imshow("YCbCr",YMat1);
+  if (count == 1){
+      waitKey(0);
+    }
+    char c =(char)waitKey(15);
+    if(c==27){
+      break;
+    }
+  }
+  cap.release();
+
+  destroyAllWindows();
+
+}
+//!Main function with a menu
 int main( int argc, char** argv ) {
 
 
   while(1){
     int opt;
-    string NomeFicheiro = "../../ducks.y4m";
+    string NomeFicheiro = "../lena.ppm";
     cout << "Escolha uma opção:"<<endl;
     cout << "1- Reproduzir video"<<endl;
     cout << "2- Watermark"<<endl;
@@ -522,7 +708,7 @@ int main( int argc, char** argv ) {
         erosion(NomeFicheiro);
         break;
       case 13:
-        convertYUV420(NomeFicheiro);
+        convertRGBTOYUV442(NomeFicheiro);
       default:
         break;
     }

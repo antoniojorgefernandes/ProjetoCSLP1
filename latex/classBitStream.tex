@@ -3,9 +3,12 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classBitStream_af1db2867532d571330d4676cf7a34093}\label{classBitStream_af1db2867532d571330d4676cf7a34093}} 
+\mbox{\hyperlink{classBitStream_af1db2867532d571330d4676cf7a34093}{Bit\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBitStream_abc5529c56d609c23449ce3e408a50786}{write\+One\+Bit}} (u\+\_\+char bit)
 \item 
-void \mbox{\hyperlink{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}{write\+NBits}} (int value, int number\+Of\+Bits)
+void \mbox{\hyperlink{classBitStream_a3f70e6db950dc489f96964811c08c556}{write\+NBits}} (u\+\_\+long value, int number\+Of\+Bits)
 \item 
 bool \mbox{\hyperlink{classBitStream_ab51c4b77f33ca94a6da27caa33d9f985}{read\+One\+Bit}} ()
 \item 
@@ -47,11 +50,11 @@ Read n bits by reading one bit n times \mbox{\Hypertarget{classBitStream_ab51c4b
 \doxysubsubsection{\texorpdfstring{readOneBit()}{readOneBit()}}
 {\footnotesize\ttfamily bool Bit\+Stream\+::read\+One\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Read one bit either from a file or from the Bit\+Storage Calculates the current byte position to read from file and the position of the bit to read from said byte \mbox{\Hypertarget{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}\label{classBitStream_a9cda19039f4d7cc70c7f941bcf348063}} 
+Read one bit either from a file or from the Bit\+Storage Calculates the current byte position to read from file and the position of the bit to read from said byte \mbox{\Hypertarget{classBitStream_a3f70e6db950dc489f96964811c08c556}\label{classBitStream_a3f70e6db950dc489f96964811c08c556}} 
 \index{BitStream@{BitStream}!writeNBits@{writeNBits}}
 \index{writeNBits@{writeNBits}!BitStream@{BitStream}}
 \doxysubsubsection{\texorpdfstring{writeNBits()}{writeNBits()}}
-{\footnotesize\ttfamily void Bit\+Stream\+::write\+NBits (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Bit\+Stream\+::write\+NBits (\begin{DoxyParamCaption}\item[{u\+\_\+long}]{value,  }\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 writes n bits by writting one bit n times \mbox{\Hypertarget{classBitStream_abc5529c56d609c23449ce3e408a50786}\label{classBitStream_abc5529c56d609c23449ce3e408a50786}} 
 \index{BitStream@{BitStream}!writeOneBit@{writeOneBit}}

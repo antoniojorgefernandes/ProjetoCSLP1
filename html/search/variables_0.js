@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['bitstorage_16',['BitStorage',['../classBitStream.html#ab847cb08cb00fca1798abca88884e635',1,'BitStream']]],
-  ['bitswrittentofile_17',['bitsWrittenToFile',['../classBitStream.html#ac498c02ea0f0559af59021a90a37b559',1,'BitStream']]]
+  ['bitstorage_21',['BitStorage',['../classBitStreamR.html#a42ac5b57b7592b8b1271c081e5920868',1,'BitStreamR::BitStorage()'],['../classBitStreamW.html#a432c2d2c87cd5fbcfefa08258f2d425e',1,'BitStreamW::BitStorage()']]]
 ];

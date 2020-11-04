@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertposition_18',['InsertPosition',['../classBitStream.html#a481139af3b25e315ba53b02215704b41',1,'BitStream']]]
+  ['insertposition_22',['InsertPosition',['../classBitStreamW.html#adec38254114fca2fcb08c3e18df4470e',1,'BitStreamW']]]
 ];

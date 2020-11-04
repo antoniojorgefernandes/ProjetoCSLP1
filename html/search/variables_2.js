@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readposition_19',['ReadPosition',['../classBitStream.html#ab7c076cf6edff6ed9e0a08c39a276682',1,'BitStream']]],
-  ['rf_20',['rf',['../classBitStream.html#a273abf77d91226319cec79acc45769d1',1,'BitStream']]]
+  ['readposition_23',['ReadPosition',['../classBitStreamR.html#a4748eb692a0c44d33861756baaccf7c3',1,'BitStreamR']]],
+  ['rf_24',['rf',['../classBitStreamR.html#a2fc883eb28ee3d8900982b7b50822e1f',1,'BitStreamR']]]
 ];
