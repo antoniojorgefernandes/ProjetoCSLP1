@@ -5,10 +5,10 @@
 \item 
 \mbox{\Hypertarget{classBitStreamR_ad72c8ca18107646401728c598cc6a8a4}\label{classBitStreamR_ad72c8ca18107646401728c598cc6a8a4}} 
 \mbox{\hyperlink{classBitStreamR_ad72c8ca18107646401728c598cc6a8a4}{Bit\+StreamR}} ()
-\begin{DoxyCompactList}\small\item\em Contrutor abre o ficheiro para guardar informação. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classBitStreamR_a7f128de87d61656a5b885cbb58d70b6e}{read\+One\+Bit}} ()
+\begin{DoxyCompactList}\small\item\em Contrutor opens de file to read info from. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBitStreamR_abcd529fea6c5532c7bc7b9a0d6b93a47}{read\+One\+Bit}} ()
 \item 
-boost\+::dynamic\+\_\+bitset \mbox{\hyperlink{classBitStreamR_a94c9d317d499a30970419eb449fe4928}{read\+NBits}} (int number\+Of\+Bits)
+int \mbox{\hyperlink{classBitStreamR_a8d04937ae14b00dc0820296d46853572}{read\+NBits}} (int number\+Of\+Bits)
 \item 
 \mbox{\Hypertarget{classBitStreamR_a743e2169dc8d5c6f51764398c382a712}\label{classBitStreamR_a743e2169dc8d5c6f51764398c382a712}} 
 void \mbox{\hyperlink{classBitStreamR_a743e2169dc8d5c6f51764398c382a712}{close}} ()
@@ -22,23 +22,29 @@ bitset$<$ 8 $>$ \mbox{\hyperlink{classBitStreamR_a42ac5b57b7592b8b1271c081e59208
 \mbox{\Hypertarget{classBitStreamR_a4748eb692a0c44d33861756baaccf7c3}\label{classBitStreamR_a4748eb692a0c44d33861756baaccf7c3}} 
 int \mbox{\hyperlink{classBitStreamR_a4748eb692a0c44d33861756baaccf7c3}{Read\+Position}} =0
 \begin{DoxyCompactList}\small\item\em Position to store the next bit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBitStreamR_aee1aa0126d2d5b4c1b42bf66c82de9ff}\label{classBitStreamR_aee1aa0126d2d5b4c1b42bf66c82de9ff}} 
+int \mbox{\hyperlink{classBitStreamR_aee1aa0126d2d5b4c1b42bf66c82de9ff}{Current\+Byte}} =0
+\begin{DoxyCompactList}\small\item\em Current file byte. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classBitStreamR_a2fc883eb28ee3d8900982b7b50822e1f}\label{classBitStreamR_a2fc883eb28ee3d8900982b7b50822e1f}} 
 ifstream \mbox{\hyperlink{classBitStreamR_a2fc883eb28ee3d8900982b7b50822e1f}{rf}}
-\begin{DoxyCompactList}\small\item\em Write to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em File reader. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classBitStreamR}{Bit\+StreamR}} (R for Reader) is a class used to read bits from a file. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classBitStreamR_a94c9d317d499a30970419eb449fe4928}\label{classBitStreamR_a94c9d317d499a30970419eb449fe4928}} 
+\mbox{\Hypertarget{classBitStreamR_a8d04937ae14b00dc0820296d46853572}\label{classBitStreamR_a8d04937ae14b00dc0820296d46853572}} 
 \index{BitStreamR@{BitStreamR}!readNBits@{readNBits}}
 \index{readNBits@{readNBits}!BitStreamR@{BitStreamR}}
 \doxysubsubsection{\texorpdfstring{readNBits()}{readNBits()}}
-{\footnotesize\ttfamily boost\+::dynamic\+\_\+bitset Bit\+Stream\+R\+::read\+NBits (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily int Bit\+Stream\+R\+::read\+NBits (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Read n bits by reading one bit n times \mbox{\Hypertarget{classBitStreamR_a7f128de87d61656a5b885cbb58d70b6e}\label{classBitStreamR_a7f128de87d61656a5b885cbb58d70b6e}} 
+Read n bits by reading one bit n times \mbox{\Hypertarget{classBitStreamR_abcd529fea6c5532c7bc7b9a0d6b93a47}\label{classBitStreamR_abcd529fea6c5532c7bc7b9a0d6b93a47}} 
 \index{BitStreamR@{BitStreamR}!readOneBit@{readOneBit}}
 \index{readOneBit@{readOneBit}!BitStreamR@{BitStreamR}}
 \doxysubsubsection{\texorpdfstring{readOneBit()}{readOneBit()}}
-{\footnotesize\ttfamily bool Bit\+Stream\+R\+::read\+One\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily int Bit\+Stream\+R\+::read\+One\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Reads one bit from the file 
 

@@ -7,6 +7,10 @@
 
 using namespace std;
 
+/*!
+    BitStreamW (W de writter) é uma classe para escrever bits num ficheiro.
+*/
+
 class BitStreamW{
 
     public:
@@ -18,7 +22,7 @@ class BitStreamW{
     ofstream wf;
     //!Contrutor abre o ficheiro para guardar informação
     BitStreamW(){
-        wf.open("bitFile.bin", ios::binary | ios_base::app);
+        wf.open("bitFile.bin", ios::binary | ios::out);
     }
 
     /*!

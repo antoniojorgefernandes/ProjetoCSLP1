@@ -1,0 +1,40 @@
+\hypertarget{classGolomb}{}\doxysection{Golomb Class Reference}
+\label{classGolomb}\index{Golomb@{Golomb}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+dynamic\+\_\+bitset \mbox{\hyperlink{classGolomb_ae2cb633c840ce1dd690bac39f424d2a8}{encode}} (int value, int m)
+\item 
+dynamic\+\_\+bitset \mbox{\hyperlink{classGolomb_a75bbd7a9f413eff1f7e6a8781d403bb6}{to\+Unit}} (int q)
+\item 
+int \mbox{\hyperlink{classGolomb_ad1d4cbc0b9e5f209d8e401e8c9827387}{decode}} (dynamic\+\_\+bitset$<$$>$ encoded\+Val, int m)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de codificação usando o método de \mbox{\hyperlink{classGolomb}{Golomb}} Classe composta por métodos de codificação e descodificação 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGolomb_ad1d4cbc0b9e5f209d8e401e8c9827387}\label{classGolomb_ad1d4cbc0b9e5f209d8e401e8c9827387}} 
+\index{Golomb@{Golomb}!decode@{decode}}
+\index{decode@{decode}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily int Golomb\+::decode (\begin{DoxyParamCaption}\item[{dynamic\+\_\+bitset$<$$>$}]{encoded\+Val,  }\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Faz decode de um bitset codificado. \mbox{\Hypertarget{classGolomb_ae2cb633c840ce1dd690bac39f424d2a8}\label{classGolomb_ae2cb633c840ce1dd690bac39f424d2a8}} 
+\index{Golomb@{Golomb}!encode@{encode}}
+\index{encode@{encode}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily dynamic\+\_\+bitset Golomb\+::encode (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Codifica o inteiro fornecido. Para isso calcula os valores de q,r,c, converte q para unitario e r para binário e faz a concatenação q+r \mbox{\Hypertarget{classGolomb_a75bbd7a9f413eff1f7e6a8781d403bb6}\label{classGolomb_a75bbd7a9f413eff1f7e6a8781d403bb6}} 
+\index{Golomb@{Golomb}!toUnit@{toUnit}}
+\index{toUnit@{toUnit}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{toUnit()}{toUnit()}}
+{\footnotesize\ttfamily dynamic\+\_\+bitset Golomb\+::to\+Unit (\begin{DoxyParamCaption}\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Converte o numero inteiro para unitário no formato n 1\textquotesingle{}s e 0 como terminador 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Golomb.\+cpp\end{DoxyCompactItemize}

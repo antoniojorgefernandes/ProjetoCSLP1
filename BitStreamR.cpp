@@ -7,6 +7,11 @@
 
 using namespace std;
 
+
+/*!
+    BitStreamR (R for Reader) is a class used to read bits from a file.
+*/
+
 class BitStreamR{
 
     public:
@@ -14,27 +19,32 @@ class BitStreamR{
     bitset<8> BitStorage;
     //!Position to store the next bit
     int ReadPosition=0;
-    //!Write to file
+    //!Current file byte
+    int CurrentByte=0;
+    //!File reader
     ifstream rf;
-    //!Contrutor abre o ficheiro para guardar informação
+    //!Contrutor opens de file to read info from
     BitStreamR(){
-        rf.open("bitFile.bin", ios::binary | ios_base::app);
+        rf.open("bitFile.bin", ios::binary);
     }
 
     /*!
         Reads one bit from the file
     */
-    bool readOneBit(){
-        bool bit;
+    int readOneBit(){
+        int bit;
+        char tempStorage;
         if(ReadPosition==8){
             ReadPosition=0;
+            CurrentByte++;
         }
-        else if(ReadPosition==0){
-            char tempStorage;
+        if(ReadPosition==0){
+            rf.clear();
+            rf.seekg(CurrentByte);
             rf.read( reinterpret_cast<char*>(&tempStorage), 8) ;
             BitStorage=tempStorage;
-            cout<<BitStorage<<endl;
         }   
+
         bit= BitStorage[ReadPosition];
         ReadPosition++;
         return bit;
@@ -42,12 +52,12 @@ class BitStreamR{
     /*!
         Read n bits by reading one bit n times
     */
-    boost::dynamic_bitset<> readNBits(int numberOfBits){
-        boost::dynamic_bitset<> Bits(numberOfBits);
+    int readNBits(int numberOfBits){
+        int value=0;
         for(int i=0; i<numberOfBits;i++){
-            Bits[i]=readOneBit();
+            value+=readOneBit()*pow(2,i);
         }
-        return Bits;
+        return value;
     }
     //! Fecha o ficheiro de onde lemos os bits
     void close(){

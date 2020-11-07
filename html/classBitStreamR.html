@@ -74,12 +74,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad72c8ca18107646401728c598cc6a8a4"><td class="memItemLeft" align="right" valign="top"><a id="ad72c8ca18107646401728c598cc6a8a4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#ad72c8ca18107646401728c598cc6a8a4">BitStreamR</a> ()</td></tr>
-<tr class="memdesc:ad72c8ca18107646401728c598cc6a8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contrutor abre o ficheiro para guardar informação. <br /></td></tr>
+<tr class="memdesc:ad72c8ca18107646401728c598cc6a8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contrutor opens de file to read info from. <br /></td></tr>
 <tr class="separator:ad72c8ca18107646401728c598cc6a8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f128de87d61656a5b885cbb58d70b6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a7f128de87d61656a5b885cbb58d70b6e">readOneBit</a> ()</td></tr>
-<tr class="separator:a7f128de87d61656a5b885cbb58d70b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94c9d317d499a30970419eb449fe4928"><td class="memItemLeft" align="right" valign="top">boost::dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a94c9d317d499a30970419eb449fe4928">readNBits</a> (int numberOfBits)</td></tr>
-<tr class="separator:a94c9d317d499a30970419eb449fe4928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd529fea6c5532c7bc7b9a0d6b93a47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#abcd529fea6c5532c7bc7b9a0d6b93a47">readOneBit</a> ()</td></tr>
+<tr class="separator:abcd529fea6c5532c7bc7b9a0d6b93a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d04937ae14b00dc0820296d46853572"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a8d04937ae14b00dc0820296d46853572">readNBits</a> (int numberOfBits)</td></tr>
+<tr class="separator:a8d04937ae14b00dc0820296d46853572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a743e2169dc8d5c6f51764398c382a712"><td class="memItemLeft" align="right" valign="top"><a id="a743e2169dc8d5c6f51764398c382a712"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a743e2169dc8d5c6f51764398c382a712">close</a> ()</td></tr>
 <tr class="memdesc:a743e2169dc8d5c6f51764398c382a712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fecha o ficheiro de onde lemos os bits. <br /></td></tr>
@@ -95,14 +95,20 @@ bitset&lt; 8 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a4748eb692a0c44d33861756baaccf7c3">ReadPosition</a> =0</td></tr>
 <tr class="memdesc:a4748eb692a0c44d33861756baaccf7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position to store the next bit. <br /></td></tr>
 <tr class="separator:a4748eb692a0c44d33861756baaccf7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1aa0126d2d5b4c1b42bf66c82de9ff"><td class="memItemLeft" align="right" valign="top"><a id="aee1aa0126d2d5b4c1b42bf66c82de9ff"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#aee1aa0126d2d5b4c1b42bf66c82de9ff">CurrentByte</a> =0</td></tr>
+<tr class="memdesc:aee1aa0126d2d5b4c1b42bf66c82de9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current file byte. <br /></td></tr>
+<tr class="separator:aee1aa0126d2d5b4c1b42bf66c82de9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fc883eb28ee3d8900982b7b50822e1f"><td class="memItemLeft" align="right" valign="top"><a id="a2fc883eb28ee3d8900982b7b50822e1f"></a>
 ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStreamR.html#a2fc883eb28ee3d8900982b7b50822e1f">rf</a></td></tr>
-<tr class="memdesc:a2fc883eb28ee3d8900982b7b50822e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write to file. <br /></td></tr>
+<tr class="memdesc:a2fc883eb28ee3d8900982b7b50822e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">File reader. <br /></td></tr>
 <tr class="separator:a2fc883eb28ee3d8900982b7b50822e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a94c9d317d499a30970419eb449fe4928"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94c9d317d499a30970419eb449fe4928">&#9670;&nbsp;</a></span>readNBits()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classBitStreamR.html">BitStreamR</a> (R for Reader) is a class used to read bits from a file. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8d04937ae14b00dc0820296d46853572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d04937ae14b00dc0820296d46853572">&#9670;&nbsp;</a></span>readNBits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +117,7 @@ ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::dynamic_bitset BitStreamR::readNBits </td>
+          <td class="memname">int BitStreamR::readNBits </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>numberOfBits</em></td><td>)</td>
@@ -128,8 +134,8 @@ ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="a7f128de87d61656a5b885cbb58d70b6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f128de87d61656a5b885cbb58d70b6e">&#9670;&nbsp;</a></span>readOneBit()</h2>
+<a id="abcd529fea6c5532c7bc7b9a0d6b93a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd529fea6c5532c7bc7b9a0d6b93a47">&#9670;&nbsp;</a></span>readOneBit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,7 +144,7 @@ ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool BitStreamR::readOneBit </td>
+          <td class="memname">int BitStreamR::readOneBit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
