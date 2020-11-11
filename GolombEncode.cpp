@@ -23,6 +23,7 @@ class GolombEncode{
         else{
             sign=0;
         }
+        value= abs(value);
         int q = value/m;
         int r = value-q*m;
         float c = ceil(log2(m));
