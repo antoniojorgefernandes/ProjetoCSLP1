@@ -16,6 +16,13 @@ class GolombEncode{
         Codifica o inteiro fornecido. Para isso calcula os valores de q,r,c, converte q para unitario e r para binário e faz a concatenação q+r
     */
     dynamic_bitset<> encode(int value, int m){
+        int sign;
+        if(value<0){
+            sign=1;
+        }
+        else{
+            sign=0;
+        }
         int q = value/m;
         int r = value-q*m;
         float c = ceil(log2(m));
@@ -35,6 +42,7 @@ class GolombEncode{
         for(int i=0; i<q+1;i++){
             codedValue.push_back(qToUnit[i]);
         }
+        codedValue.push_back(sign);
         return codedValue;
     }
     /*!

@@ -10,6 +10,9 @@ int main(int argc, char* argv[]){
     cout<<"number 10 encoded with m=5: ";
     dynamic_bitset<> ten = golombEnc.encode(10,5);
     cout<<ten<<endl;
+    cout<<"number 100.000 encoded with m=50000: ";
+    dynamic_bitset<> onehund = golombEnc.encode(100000,50000);
+    cout<<onehund<<endl;
     cout<<"number 12 encoded with m=2: ";
     dynamic_bitset<> twelve = golombEnc.encode(12,2);
     cout<<twelve<<endl;
@@ -26,6 +29,9 @@ int main(int argc, char* argv[]){
     int f;
     cout<<ten<<" decoded: ";
     f = golombDec.decode(ten,5);
+    cout<<f<<endl;
+    cout<<onehund<<" decoded with m=50000: ";
+    f = golombDec.decode(onehund,50000);
     cout<<f<<endl;
     cout<<twelve<<" decoded: ";
     f = golombDec.decode(twelve,2);
