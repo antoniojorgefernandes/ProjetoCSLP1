@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encode_6',['encode',['../classGolomb.html#ae2cb633c840ce1dd690bac39f424d2a8',1,'Golomb']]]
+  ['encode_6',['encode',['../classGolombEncode.html#a855707720d8d656d6c360c9feb00f8ba',1,'GolombEncode']]]
 ];

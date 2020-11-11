@@ -1,0 +1,32 @@
+\hypertarget{classGolombEncode}{}\doxysection{Golomb\+Encode Class Reference}
+\label{classGolombEncode}\index{GolombEncode@{GolombEncode}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+dynamic\+\_\+bitset \mbox{\hyperlink{classGolombEncode_a855707720d8d656d6c360c9feb00f8ba}{encode}} (int value, int m)
+\item 
+dynamic\+\_\+bitset \mbox{\hyperlink{classGolombEncode_a280144a5911d8723012dabbe0dd3ba7b}{to\+Unit}} (int q)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de codificação usando o método de Golomb 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGolombEncode_a855707720d8d656d6c360c9feb00f8ba}\label{classGolombEncode_a855707720d8d656d6c360c9feb00f8ba}} 
+\index{GolombEncode@{GolombEncode}!encode@{encode}}
+\index{encode@{encode}!GolombEncode@{GolombEncode}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily dynamic\+\_\+bitset Golomb\+Encode\+::encode (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Codifica o inteiro fornecido. Para isso calcula os valores de q,r,c, converte q para unitario e r para binário e faz a concatenação q+r \mbox{\Hypertarget{classGolombEncode_a280144a5911d8723012dabbe0dd3ba7b}\label{classGolombEncode_a280144a5911d8723012dabbe0dd3ba7b}} 
+\index{GolombEncode@{GolombEncode}!toUnit@{toUnit}}
+\index{toUnit@{toUnit}!GolombEncode@{GolombEncode}}
+\doxysubsubsection{\texorpdfstring{toUnit()}{toUnit()}}
+{\footnotesize\ttfamily dynamic\+\_\+bitset Golomb\+Encode\+::to\+Unit (\begin{DoxyParamCaption}\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Converte o numero inteiro para unitário no formato n 1\textquotesingle{}s e 0 como terminador 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Golomb\+Encode.\+cpp\end{DoxyCompactItemize}
