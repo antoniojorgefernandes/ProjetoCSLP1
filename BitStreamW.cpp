@@ -6,7 +6,7 @@
 #include <boost/dynamic_bitset.hpp> 
 
 using namespace std;
-
+using namespace boost;
 /*!
     BitStreamW (W de writter) é uma classe para escrever bits num ficheiro.
 */
@@ -43,10 +43,9 @@ class BitStreamW{
     /*!
         writes n bits by writting one bit n times
     */
-    void writeNBits(int value, int numberOfBits){
-        boost::dynamic_bitset<> valueBin(numberOfBits,value);
+    void writeNBits(dynamic_bitset<> value, int numberOfBits){
         for(int i=0; i<numberOfBits;i++){
-            writeOneBit(valueBin[i]);
+            writeOneBit(value[i]);
         }
     }
     

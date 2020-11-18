@@ -4,7 +4,7 @@
 #include <math.h> 
 #include <vector> 
 #include <boost/dynamic_bitset.hpp> 
-
+using namespace boost;
 using namespace std;
 
 
@@ -52,10 +52,10 @@ class BitStreamR{
     /*!
         Read n bits by reading one bit n times
     */
-    int readNBits(int numberOfBits){
-        int value=0;
+    dynamic_bitset<> readNBits(int numberOfBits){
+        dynamic_bitset<> value(numberOfBits);
         for(int i=0; i<numberOfBits;i++){
-            value+=readOneBit()*pow(2,i);
+            value.set(i,readOneBit());
         }
         return value;
     }
