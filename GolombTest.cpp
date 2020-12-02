@@ -1,15 +1,23 @@
 #include "GolombEncode.cpp"
 #include "GolombDecode.cpp"
 #include <boost/dynamic_bitset.hpp> 
+#include "BitStreamR.cpp"
+#include "BitStreamW.cpp"
 #include <iostream>
 using namespace std;
 using namespace boost;
 
 int main(int argc, char* argv[]){
     GolombEncode golombEnc;
+    BitStreamR bsr;
+    BitStreamW bsw;
     cout<<"number 10 encoded with m=5: ";
     dynamic_bitset<> ten = golombEnc.encode(-10,5);
     cout<<ten<<endl;
+    bsw.writeNBits(ten,ten.size());
+    bsw.close();
+    cout<<bsr.readNBits(ten.size());
+    cout<<"ere"<<endl;
     cout<<"number 100.000 encoded with m=50000: ";
     dynamic_bitset<> onehund = golombEnc.encode(100000,50000);
     cout<<onehund<<endl;

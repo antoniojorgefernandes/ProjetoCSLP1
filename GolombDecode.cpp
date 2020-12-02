@@ -10,26 +10,22 @@ class GolombDecode{
         Faz decode de um bitset codificado. 
     */
     int decode(dynamic_bitset<> encodedVal, int m){
-        int q;
+        int q=1;
         int r=0;
         int value;
         int c = ceil(log2(m));
-        int numberOfbits = encodedVal.size()-1;
-        int sign = encodedVal[numberOfbits];
-        for(int i=numberOfbits-1; i>=0; i--){
-            if(encodedVal[i]==0){
-                q=numberOfbits-(i+1);   
-                break;
-            }
+        int sign = encodedVal[encodedVal.size()-1];
+        encodedVal.pop_back();
+        while(encodedVal[encodedVal.size()-1]!=0){
+            encodedVal.pop_back();
+            q++;
         }
-        encodedVal.resize(numberOfbits-q-1);
         if(encodedVal.size()==1){
             r= encodedVal[0]*pow(2,0);
         }
         else{
-            for(int i=encodedVal.size()-1; i>encodedVal.size()-1-c;i--){
-                r+= encodedVal[i]*pow(2,c-1);
-                c--;
+            for(int i=c-1; i>=c;i--){
+                r+= encodedVal[encodedVal.size()-1]*pow(2,i);
             }
         }
         if(r<pow(2,c)-1){
@@ -51,6 +47,7 @@ class GolombDecode{
             }
             
         }
+        cout<<value<<endl;
         return value;
     }
 };

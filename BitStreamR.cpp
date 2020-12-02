@@ -25,7 +25,7 @@ class BitStreamR{
     ifstream rf;
     //!Contrutor opens de file to read info from
     BitStreamR(){
-        rf.open("bitFile.bin", ios::binary);
+        rf.open("../bitFile.bin", ios::binary);
     }
 
     /*!
@@ -55,7 +55,7 @@ class BitStreamR{
     dynamic_bitset<> readNBits(int numberOfBits){
         dynamic_bitset<> value(numberOfBits);
         for(int i=0; i<numberOfBits;i++){
-            value.set(i,readOneBit());
+            value.push_back(readOneBit());
         }
         return value;
     }

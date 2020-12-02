@@ -15,14 +15,15 @@ class BitStreamW{
 
     public:
     //!bitset to Store up to 8 bits
-    bitset<8> BitStorage;
+    dynamic_bitset<> BitStorage;
     //!Position to store the next bit
     int InsertPosition=0;
     //!Write to file
     ofstream wf;
     //!Contrutor abre o ficheiro para guardar informação
     BitStreamW(){
-        wf.open("bitFile.bin", ios::binary | ios::out);
+        wf.open("../bitFile.bin",ios::binary);
+        
     }
 
     /*!
@@ -31,13 +32,13 @@ class BitStreamW{
         Resets the InsertPosition and the storage
     */
     void writeOneBit(u_char bit){
-        BitStorage.set(InsertPosition, bit);
+        BitStorage.push_back(bit);
         InsertPosition++;
         if(InsertPosition==8){
             char n = BitStorage.to_ulong();
-            wf.write( reinterpret_cast<const char*>(&n), sizeof(n) );
+            wf.write( reinterpret_cast<const char*>(&n), sizeof(n));
             InsertPosition=0;
-            BitStorage.reset();
+            BitStorage.clear();
         }
     }
     /*!
