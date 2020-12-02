@@ -21,7 +21,9 @@ class Preditor{
     BitStreamW bsw;
     GolombDecode gd;
     BitStreamR bsr;
+    int count=0;
     Mat predict(Mat frame){
+        cout<<count++<<endl;
         vector<Mat> rgbChannels(3); //Mat rgbchannel[3];
 	    split(frame, rgbChannels);
         vector<Mat> channels;

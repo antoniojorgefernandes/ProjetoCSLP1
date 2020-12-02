@@ -5,7 +5,7 @@
 #include <iostream>
 
 int main(int argc, char* argv[]){
-    vector<Mat> vid;
+    vector<Mat> vidpred,vidrecon;
     Preditor preditor;
     VideoCapture cap("../../ducks.y4m");
     if(!cap.isOpened()){
@@ -19,10 +19,17 @@ int main(int argc, char* argv[]){
             break;
         }
         Mat coded=preditor.predict(frame);
-        Mat fr=preditor.reconstruct(coded);
-        vid.push_back(fr);
+        vidpred.push_back(coded);
     }
-    for (Mat img :vid){
+    for (Mat img :vidpred){
+        imshow("coded",img);
+        char c =(char)waitKey(15);
+    }
+    for(Mat frame : vidpred){
+        Mat fr=preditor.reconstruct(frame);
+        vidrecon.push_back(fr);
+    }
+    for (Mat img :vidrecon){
         imshow("frame",img);
         char c =(char)waitKey(15);
     }
