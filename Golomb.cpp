@@ -1,88 +1,106 @@
-#include "BitStreamW.cpp"
-#include "BitStreamR.cpp"
-#include <boost/dynamic_bitset.hpp> 
+//
+//  Golomb.cpp
+//  CAV_T2
+//
+//  Created by Pedro Costa on 11/11/14.
+//  Copyright (c) 2014 pmec. All rights reserved.
+//
+
+#include "Golomb.h"
 #include <math.h>
-using namespace std;
-using namespace boost;
+#include <stdlib.h>
+#include <iostream>
 
-/*!
-    Implementação de codificação usando o método de Golomb
-    Classe composta por métodos de codificação e descodificação 
-*/
+Golomb::Golomb(BitStream *bs, int m) {
+	this->bs = bs;
+	this->m = m;
 
-class Golomb{
+	this->b = (int)ceil(log2(m));
+	this->l = pow(2, b) - m;
+	this->h = m - l;
+}
 
-    public:
+Golomb::~Golomb() {
 
-    /*! 
-        Codifica o inteiro fornecido. Para isso calcula os valores de q,r,c, converte q para unitario e r para binário e faz a concatenação q+r
-    */
-    dynamic_bitset<> encode(int value, int m){
-        int q = value/m;
-        int r = value-q*m;
-        int c = ceil(log2(m));
-        if(r<(pow(2,c)-1)){
-            if(c-1<1){
-                c=1;
-            }
-            else{
-                c=c-1;
-            }
-        }
-        else{
-            r= r+(pow(2,c)-m);
-        }
-        dynamic_bitset<> codedValue(c,r);
-        dynamic_bitset<> qToUnit = toUnit(q);
-        for(int i=0; i<q+1;i++){
-            codedValue.push_back(qToUnit[i]);
-        }
-        return codedValue;
-    }
-    /*!
-        Converte o numero inteiro para unitário no formato n 1's e 0 como terminador
-    */
-    dynamic_bitset<> toUnit(int q){
-        dynamic_bitset<> qUnit(q+1);
-        qUnit.set(0);
-        qUnit.flip();
-        return qUnit;
-    }
+}
 
-    /*!
-        Faz decode de um bitset codificado. 
-    */
-    int decode(dynamic_bitset<> encodedVal, int m){
-        int q;
-        int r=0;
-        int value;
-        int c = ceil(log2(m));
-        int numberOfbits = encodedVal.size();
-        for(int i=numberOfbits-1; i>0; i--){
-            if(encodedVal[i]==0){
-                q=numberOfbits-(i+1);
-            }
-        }
-        encodedVal.resize(numberOfbits-q-1);
-        if(encodedVal.size()==1){
-            r+= encodedVal[0]*pow(2,c-1);
-        }
-        else{
-            for(int i=encodedVal.size()-1; i>encodedVal.size()-1-c;i--){
-                r+= encodedVal[i]*pow(2,c-1);
-                c--;
-            }
-        }
-        if(r<pow(2,c)-1){
-            value= m*q +r;
-        }
-        else{
-            encodedVal.resize(encodedVal.size()-1);
-            for(int i=0; i<encodedVal.size();i++){
-                r+= encodedVal[i]*pow(2,i);
-            }
-            value= m*q +r-(pow(2,c)-m);
-        }
-        return value;
-    }
-};
+GolombEncoder::GolombEncoder(BitStream *bs, int m) : Golomb(bs, m) {
+
+}
+
+GolombEncoder::~GolombEncoder() {
+
+}
+
+void GolombEncoder::encode(int e) {
+	if(e<0){
+		bs->writeBit(1);
+	}
+	else{
+		bs->writeBit(0);
+	}
+	unsigned int q, r;
+	e=abs(e);
+	q = e / m;
+	r = e % m;
+
+	/*
+     Check if m is efficitent
+        if yes      . Rice code
+        otherwise   . Golomb code
+	 */
+	if (r < l){
+		bs->writeNBits(r, b - 1);
+	} else {
+		bs->writeNBits(r + l, b);
+	}
+
+	for (unsigned int i = 0; i < q; i++) {
+		bs->writeBit(1);
+	}
+
+	bs->writeBit(0);
+}
+
+GolombDecoder::GolombDecoder(BitStream *bs, int m) : Golomb(bs, m) {
+
+}
+
+GolombDecoder::~GolombDecoder() {
+
+}
+
+int GolombDecoder::decode() {
+	int sign=bs->readBit();
+	unsigned int q = 0, r, t;
+	int x;
+
+	x = bs->readNBits(b - 1);
+	if(x == -1)
+		return -1;
+
+	if((unsigned)x < l){
+		r = x;
+	}
+	else{
+		int y = bs->readNBits(1);
+		if(y == -1)
+			return -1;
+		x = ( x << 1 ) | y;
+		r = x - l;
+	}
+
+	int tmp;
+	while ((tmp = bs->readBit() == 1)) {
+		q ++;
+	}
+
+	if(tmp == -1)
+		return -1;
+
+	t = q * m + r;
+	if (sign==1){
+		t*=-1;
+	}
+	return t;
+}

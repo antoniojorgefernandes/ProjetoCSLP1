@@ -5,33 +5,35 @@
 #include <iostream>
 
 int main(int argc, char* argv[]){
-    vector<Mat> vidpred,vidrecon;
     Preditor preditor;
     VideoCapture cap("../../ducks.y4m");
     if(!cap.isOpened()){
         cout << "Error opening the video" <<endl;
     return 0;
     }
+    int rows=0;
+    int cols=0;
     while(1){
         Mat frame;
         cap >> frame;
         if(frame.empty()){
             break;
         }
-        Mat coded=preditor.predict(frame);
-        vidpred.push_back(coded);
+        preditor.predict(frame,4);
     }
-    for (Mat img :vidpred){
-        imshow("coded",img);
+    vector<Mat> channels;
+    int i=259;
+    while(i--){
+        Mat rec =preditor.reconstruct(288,352,"../bitFile1.bin","../preditor1.bin",4);
+        channels.push_back(rec);
+    }
+    for(Mat img : channels){
+        imshow("img",img);
         char c =(char)waitKey(15);
+        if(c==27){
+            break;
+        }
     }
-    for(Mat frame : vidpred){
-        Mat fr=preditor.reconstruct(frame);
-        vidrecon.push_back(fr);
-    }
-    for (Mat img :vidrecon){
-        imshow("frame",img);
-        char c =(char)waitKey(15);
-    }
+
     cap.release();
 }
